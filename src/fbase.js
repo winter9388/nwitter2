@@ -1,4 +1,5 @@
 import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 
 //セキュリティキー保安のため、.envから各種キーを引っ張ってくる。　.envファイルはgithubにアップロードしない　（.gitignoreにリスト化）
 //비밀키 보안을 위해 .env파일에서 각종 보안키를 변수를 통해 가져옴, .env파일은 깃허브에 업로즈 하지 않는 방식으로 보안강화 (.gitignore)
@@ -11,4 +12,6 @@ const firebaseConfig = {
 	appId: process.env.REACT_APP_APP_ID,
 };
 
-export default firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
+
+export const authService = firebase.auth();
